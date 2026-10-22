@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>東京事務所での生成AI活用</title>
+<style>
+:root{--blue:#1f4e79;--blue-l:#e8f0f8;--orange:#c55a11;--orange-l:#fdf0e6;--green:#2e7d32;--ink:#222;--sub:#555;}
+@page{size:1280px 720px;margin:0}
+*{box-sizing:border-box}
+body{margin:0;background:#ddd;font-family:"Noto Sans JP","Yu Gothic","Meiryo","IPAPGothic","IPAGothic",sans-serif;color:var(--ink)}
+.slide{width:1280px;height:720px;background:#fff;margin:0 auto 24px;padding:56px 80px;position:relative;overflow:hidden;page-break-after:always;break-after:page}
+@media print{body{background:#fff}.slide{margin:0}}
+h1{font-size:34px;line-height:1.4;color:var(--blue);margin:0 0 28px;border-left:10px solid var(--blue);padding-left:20px}
+p,li{font-size:26px;line-height:1.7;margin:0 0 12px}
+ul{margin:0;padding-left:1.2em}
+.note{font-size:20px;color:var(--sub)}
+.box{border-radius:10px;padding:18px 26px;margin-top:22px;font-size:24px;line-height:1.6}
+.caution{background:var(--orange-l);border-left:8px solid var(--orange)}
+.caution b{color:var(--orange)}
+.info{background:var(--blue-l);border-left:8px solid var(--blue)}
+.foot{position:absolute;left:80px;right:80px;bottom:22px;font-size:16px;color:var(--sub);display:flex;justify-content:space-between}
+.title{display:flex;flex-direction:column;justify-content:center;background:var(--blue);color:#fff}
+.title h1{color:#fff;border:none;padding:0;font-size:54px}
+.title p{color:#dce8f5}
+.flow{display:flex;align-items:center;gap:14px;margin:26px 0}
+.step{flex:1;background:var(--blue-l);border:3px solid var(--blue);border-radius:10px;padding:18px 12px;text-align:center;font-size:24px}
+.step small{display:block;font-size:18px;color:var(--sub);margin-top:6px}
+.arrow{font-size:34px;color:var(--blue)}
+.ok{border-color:var(--green);background:#e9f5ea}
+.pending{border:3px dashed #999;border-radius:10px;padding:30px;text-align:center;color:#777;font-size:24px;margin-top:20px}
+</style>
+</head>
+<body>
+
+<section class="slide title">
+  <h1>東京事務所での<br>生成AI活用</h1>
+  <p>どうやって作ったのか、何がどう動いているのか</p>
+  <p class="note" style="color:#b9cde3">静岡市役所 東京事務所 ／ 研修資料（案）</p>
+</section>
+
+<section class="slide">
+  <h1>AIで、独学の時間を大きく短縮できるようになりました</h1>
+  <ul>
+    <li>以前の部署では、ExcelのVBAやPowerShellを独学して業務を効率化</li>
+    <li>AIを使うと、その独学にかかる時間が大きく減った</li>
+    <li>作ってきたツールの「作り方」と「仕組み」をまとめました</li>
+    <li>属人的な開発に終わらせないための資料です</li>
+  </ul>
+  <div class="box caution"><b>ご注意：</b>私が普段どう考えて作業しているかの話です。解釈が一つに決まるものではありません。</div>
+  <div class="foot"><span>はじめに</span><span>2</span></div>
+</section>
+
+<section class="slide">
+  <h1>パソコンの操作は、裏でコードが動いています</h1>
+  <p>キーボードとマウスの操作は、内部ではプログラム（コード）の命令に置き換えられて実行されています。</p>
+  <div class="box info">例えば「Enterキーを押す」は、<br>裏では「キー“Enter”を押す」という命令が実行される、というイメージです。</div>
+  <div class="box caution"><b>※</b>わかりやすさ優先の例えで、実際の仕組みとは厳密には異なります。</div>
+  <p class="note" style="margin-top:20px">黒い画面で文字を入力しているのを見たことがある方もいるかもしれません。あれがコードを入力する画面です。</p>
+  <div class="foot"><span>1章 基本的な考え方 ｜ 1-1</span><span>3</span></div>
+</section>
+
+<section class="slide">
+  <h1>操作をコードで指示できれば、作業を自動化できます</h1>
+  <p>Excelのマクロ（決まった作業をワンクリックで実行）を、コードで書く場合：</p>
+  <div class="flow">
+    <div class="step">① Excelを開く</div><div class="arrow">▶</div>
+    <div class="step">② マクロを実行する</div><div class="arrow">▶</div>
+    <div class="step ok">③ 上書き保存する</div>
+  </div>
+  <p>この3つの手順をコードに書いておくと、<b>人がExcelを開かなくても</b>作業を実行できます。</p>
+  <div class="foot"><span>1章 基本的な考え方 ｜ 1-1</span><span>4</span></div>
+</section>
+
+<section class="slide">
+  <h1>職員録・つながり名簿も、同じ考え方で作っています</h1>
+  <p>画面操作を人がするかわりに、コードに作業を任せる仕組みです。</p>
+  <div class="pending">【未作成】各システムの定義書(md)が届いたら、目的・データの保存場所・動き方を事実に基づいて記載します</div>
+  <div class="foot"><span>1章 基本的な考え方 ｜ 1-1</span><span>5</span></div>
+</section>
+
+</body>
+</html>
