@@ -44,6 +44,16 @@ table{border-collapse:collapse;width:100%;font-size:22px;line-height:1.5}
 th,td{border:1px solid var(--line);padding:10px 16px;text-align:left;vertical-align:top}
 th{background:var(--blue-l);color:var(--blue)}
 table.compact{font-size:21px}table.compact th,table.compact td{padding:7px 14px}
+.code{font-family:"IPAGothic",monospace;background:#f5f7fa;border:2px solid var(--line);border-radius:10px;padding:12px 18px;font-size:16px;line-height:1.4;white-space:pre-wrap;margin:0}
+.code .m{color:var(--orange);font-weight:bold}
+.cols{display:grid;grid-template-columns:58% 1fr;gap:22px;align-items:start}
+.ann{list-style:none;padding:0;margin:0}
+.ann li{font-size:20px;line-height:1.5;margin-bottom:12px;padding-left:40px;position:relative}
+.ann li b{color:var(--blue)}
+.ann li i{position:absolute;left:0;top:0;font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;font-weight:bold;text-align:center;line-height:30px}
+.cycle{display:flex;gap:8px;align-items:stretch;margin:6px 0 22px}
+.cycle .step{padding:14px 6px;font-size:21px}
+.cycle .arrow{font-size:26px;align-self:center}
 td.k{background:#f7f9fb;font-weight:bold;width:18%}
 .axes{display:flex;flex-direction:column;gap:14px}
 .axis{display:flex;align-items:center;gap:20px;border:3px solid var(--blue);border-radius:10px;padding:14px 22px;background:#fff}
@@ -111,6 +121,137 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
 <!-- 2章 -->
 <section class="slide chapter">
   <div class="num">2章</div>
+  <h1>開発の考え方と進め方</h1>
+  <p style="margin-top:16px">3章で紹介するツールは、どれもこの考え方で作っています</p>
+</section>
+
+<section class="slide">
+  <h1>作る前に「何のためか」と「やらないこと」を決めます</h1>
+  <div class="ba">
+    <div class="col" style="background:var(--blue-l);border:3px solid var(--blue)">
+      <h2 style="color:var(--blue)">目的から考える</h2>
+      <ul>
+        <li>道具を作ること自体は目的ではない</li>
+        <li>「名簿を整えること」ではなく、<b>応援してくれた人を数えられること</b>が目的</li>
+        <li>「Excelで管理すること」ではなく、<b>迷わず素早く更新できること</b>が目的</li>
+      </ul>
+    </div>
+    <div class="col" style="background:#f3f3f3;border:3px solid #999">
+      <h2 style="color:#555">やらないことを決める</h2>
+      <ul>
+        <li>職員録：ローマ字検索、スマホ表示、データの編集はしない</li>
+        <li>進捗管理：Word出力は入れない</li>
+        <li>外した理由も書いておく（工数に見合わない、など）</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note" style="margin-top:20px">やらないことを決めておくと、作っている途中で機能が膨らまず、完成までたどり着けます。</p>
+  <div class="foot"><span>2章 開発の考え方と進め方</span></div>
+</section>
+
+<section class="slide">
+  <h1>庁内で使える道具だけで作り、大事な判断は人に残します</h1>
+  <div class="ba">
+    <div class="col" style="background:var(--blue-l);border:3px solid var(--blue)">
+      <h2 style="color:var(--blue)">庁内の環境から逆算する</h2>
+      <ul>
+        <li>使うのは、庁内PCに最初から入っている <b>PowerShell・Excel・Edge</b></li>
+        <li>新しいソフトもサーバーも要らない</li>
+        <li>「便利な道具があるか」ではなく「<b>庁内で動くか</b>」から考える</li>
+      </ul>
+    </div>
+    <div class="col" style="background:var(--orange-l);border:3px solid var(--orange)">
+      <h2 style="color:var(--orange)">大事な判断は人に残す</h2>
+      <ul>
+        <li>同じ人かどうか、会員にするかは<b>機械に決めさせない</b></li>
+        <li>知らない値は黙って通さず、<b>止めて知らせる</b></li>
+        <li>機械は候補を出し、人が決める</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>2章 開発の考え方と進め方</span></div>
+</section>
+
+<section class="slide">
+  <h1>「決める → 書く → AIと作る → 試す → 庁内で確かめる」を繰り返します</h1>
+  <div class="cycle">
+    <div class="step">① 決める<small>目的と<br>やらないこと</small></div><div class="arrow">▶</div>
+    <div class="step">② 書く<small>定義書<br>（md）</small></div><div class="arrow">▶</div>
+    <div class="step">③ AIと作る<small>定義書を<br>読ませて依頼</small></div><div class="arrow">▶</div>
+    <div class="step">④ 試す<small>ダミー<br>データで</small></div><div class="arrow">▶</div>
+    <div class="step ok">⑤ 確かめる<small>庁内で<br>本番データ</small></div><div class="arrow">▶</div>
+    <div class="step" style="background:var(--orange-l);border-color:var(--orange)">⑥ 直して記録<small>使った人の<br>声で直す</small></div>
+  </div>
+  <ul>
+    <li>⑥で決めたことは②の定義書に書き足し、次の①へ戻る</li>
+    <li>例：交流会の設定シートは、庁内で使ってもらった指摘を受けて<b>2回作り直しました</b>（「これじゃ誰も修正できない」「業務と合っていない」）</li>
+  </ul>
+  <div class="foot"><span>2章 開発の考え方と進め方</span></div>
+</section>
+
+<section class="slide">
+  <h1>「動いた」で終わらせず、わざと壊して確かめます</h1>
+  <div class="grid2">
+    <div class="card"><b>通ったことと、動くことは違う</b><span>ダミーで動いても、外字（﨑・髙）や想定外の文字は本番でしか分からない。そこは庁内で確かめる項目として残す</span></div>
+    <div class="card"><b>わざと間違いを仕込む</b><span>同じ番号で2件の申込、リストに無い番号など、起きそうな間違いをダミーに入れて、正しく止まるかを見る</span></div>
+    <div class="card"><b>別の道具で答え合わせする</b><span>作ったものを、作った道具とは別の道具で元と照らし合わせる。自分で自分を確かめるだけでは、読み違いに気づけない</span></div>
+    <div class="card"><b>確かめたこと・まだのことを書く</b><span>「私用PCで確認済み」「庁内は未確認」を分けて書く。分からないことは分からないと書く</span></div>
+  </div>
+  <div class="foot"><span>2章 開発の考え方と進め方</span></div>
+</section>
+
+<section class="slide">
+  <h1>決めたことは日付つきで文書に残し、AIにも人にも読ませます</h1>
+  <table class="compact">
+    <tr><th style="width:18%">日付</th><th>決めたこと（つながり名簿のルールから抜粋）</th></tr>
+    <tr><td>2026-08-17</td><td>人物IDはソースの番号をそのまま使う。機械は採番しない</td></tr>
+    <tr><td>2026-08-27</td><td>関係者は入れ子。3区分ではない</td></tr>
+    <tr><td>2026-09-08</td><td>画面は2タブ（名簿／答える数字）。既定は名簿</td></tr>
+    <tr><td>2026-09-11</td><td>住所と所属は4つを1組にして、行の日付が新しいほうから丸ごと採る</td></tr>
+  </table>
+  <ul style="margin-top:18px">
+    <li>要件・仕組み・データ・ルール・画面を、それぞれ1つのファイルに分けて書く</li>
+    <li>AIは作業のたびに、まずこれを読んでから始める。<b>同じ説明を何度もしなくてよい</b></li>
+    <li>担当が替わっても、<b>説明書だけで引き継げる</b>。属人化を防ぐための一番の手段です</li>
+  </ul>
+  <div class="foot"><span>2章 開発の考え方と進め方</span></div>
+</section>
+
+<section class="slide">
+  <h1>AIへの指示は「読む資料・やること・確かめ方・守る線」を書きます</h1>
+  <div class="cols">
+<pre class="code">交流会進捗管理システムの組み立てをお願いします。
+
+<span class="m">①</span>最初に次を読んでください
+（読めば分かることは聞かないでください）。
+1. 案件.md とタスク.md
+2. 261006_ps1で組み立てる計画.md（これが設計の正）
+
+<span class="m">②</span>やること
+- いまのブックを読み取り専用で開き、
+  新しいブックに写す。元は書き換えない、消さない
+- 入れない：Word出力、更新日の自動入力
+
+<span class="m">③</span>確かめ方
+- 写した行数と中身が元と一致すること
+
+<span class="m">④</span>気をつけること
+- 実データを、持ち込む物や見本に入れない
+- 本番への持ち込みは、私が確認してからにする</pre>
+    <ul class="ann">
+      <li><i>①</i><b>読む資料を指定する</b><br>前提は文書で渡す。口で毎回説明しない</li>
+      <li><i>②</i><b>やる・やらないを書く</b><br>「入れない」も明記する</li>
+      <li><i>③</i><b>完成の基準を先に書く</b><br>何をもって「できた」とするか</li>
+      <li><i>④</i><b>守る線を書く</b><br>個人情報と、本番は人が確認すること</li>
+    </ul>
+  </div>
+  <p class="note" style="margin-top:6px;font-size:16px">実際に使った指示文から抜粋・一部省略</p>
+  <div class="foot"><span>2章 開発の考え方と進め方</span></div>
+</section>
+
+<!-- 3章 -->
+<section class="slide chapter">
+  <div class="num">3章</div>
   <h1>作ったツールの紹介</h1>
   <p style="margin-top:16px">職員録ビューア ／ つながり名簿（会員関係者データ基盤）／ 静岡市交流会の道具</p>
 </section>
@@ -138,7 +279,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     </div>
   </div>
   <p class="note" style="margin-top:22px">データを直すのは元のExcel。画面は見るためだけのもので、年1回の人事異動のあとに作り直します。</p>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ 職員録</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ 職員録</span></div>
 </section>
 
 <section class="slide">
@@ -151,7 +292,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <div class="card"><b>見たい列だけ出す</b><span>14列から選べる。次に開いたときも選んだまま</span></div>
     <div class="card"><b>1人ぶんを詳しく</b><span>行を押すと、右から全項目が出る</span></div>
   </div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ 職員録</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ 職員録</span></div>
 </section>
 
 <section class="slide">
@@ -170,7 +311,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <li>所属名（例：葵区役所地域総務課）は、組織の辞書と照らし合わせて局・部・課に分けています。<b>推測ではなく照合</b>なので、ずれた所属は毎回画面に出ます</li>
   </ul>
   <p class="note">開発用のダミーデータ4,911件で、作り直しは約37秒。庁内の本番データでの確認はこれからです。</p>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ 職員録</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ 職員録</span></div>
 </section>
 
 <!-- つながり名簿 -->
@@ -184,7 +325,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <li><b>どれだけ</b>動いてくれたか</li>
   </ul>
   <div class="box caution"><b>名簿を整えることは目的ではありません。</b>割合を正しく出すための土台です。</div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ つながり名簿</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ つながり名簿</span></div>
 </section>
 
 <section class="slide">
@@ -194,7 +335,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <div class="axis"><div class="tag">軸2</div><div class="body"><b>その名簿が日々使えること</b><span>見るだけでなく、画面からその場で足せる・直せる。更新されない名簿は数年で古くなる</span></div><div class="st wip">作った・庁内で確認中</div></div>
     <div class="axis"><div class="tag">軸3</div><div class="body"><b>動いてくれた人が数えられること</b><span>応援行動を起こした人の割合と、レベル別（伝える／参加／購入・寄付・来訪／共創）の内訳（＝KPI）</span></div><div class="st wip">測り方は決定・集計はこれから</div></div>
   </div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ つながり名簿</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ つながり名簿</span></div>
 </section>
 
 <section class="slide">
@@ -210,7 +351,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <div class="step" style="flex:2;background:var(--orange-l);border-color:var(--orange)">画面で入力（新しい人・修正・出席・統合の判断） → 課共有フォルダへ保存 → 翌朝の取り込みで名簿に入る</div>
   </div>
   <p class="note">急ぐときは「実行する.bat」を押せば、その場で取り込めます。</p>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ つながり名簿</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ つながり名簿</span></div>
 </section>
 
 <section class="slide">
@@ -221,7 +362,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <div class="card"><b>知らない値は黙って通さない</b><span>決めた値以外が来たら「要確認」に出す</span></div>
     <div class="card"><b>人が入れたものは消さない</b><span>保存のたびに新しいファイルを書く。2人が同時に保存しても、片方が消えない</span></div>
   </div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ つながり名簿</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ つながり名簿</span></div>
 </section>
 
 <!-- 交流会 -->
@@ -247,7 +388,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <li>ボタンの番号は押す順。色は時期ごとにそろえ、ボタンと出てくるシートが同じ色</li>
     <li>LoGoフォームから書き出したCSVを「ファイルを取り込む」で選ぶだけ。入れるシートは見出しから自動で決まる</li>
   </ul>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ 交流会</span></div>
 </section>
 
 <section class="slide">
@@ -263,7 +404,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <li>決めきれないものは「要確認」シートに出て、人が 〇／× とメモを付ける</li>
     <li>試験用のダミーデータに、<b>わざと間違いを仕込んで</b>確かめています<br><span class="note">同じ番号で2件の申込／リストに無い番号／お名前がリストと違う／「送付しない」の方からの申込 など</span></li>
   </ul>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ 交流会</span></div>
 </section>
 
 <section class="slide">
@@ -278,7 +419,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <tr><td>一部の端末でファイルが開かない（改ページプレビューのまま保存されていた）</td><td>保存の直前に、標準の表示へ自動で戻す</td></tr>
   </table>
   <p class="note" style="margin-top:14px">元のブックは書き換えません。中身を読み取って新しいブックに写し、写した中身が元と一致するかを確かめています。</p>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ 交流会</span></div>
 </section>
 
 <!-- 共通 -->
@@ -292,7 +433,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <tr><td class="k">更新</td><td>年1回（人事異動のあと）</td><td>毎朝8:30に自動</td><td>申込が来るたびにボタンを押す</td></tr>
   </table>
   <div class="box info">庁内のPCに最初から入っている <b>PowerShell・Excel・Edge だけ</b>で動くので、新しいソフトを入れる必要がありません。</div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ まとめ</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ まとめ</span></div>
 </section>
 
 <section class="slide">
@@ -310,7 +451,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <li>運ぶのはテキストだけ。中身を隠さず、情報管理担当が確認できる形にしています</li>
   </ul>
   <div class="box caution" style="margin-top:12px"><b>無害化をすり抜けるための工夫ではありません。</b>本物の名簿は庁内から出さず、外からは設計図しか入れない、という線を守るための作り方です。</div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ まとめ</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ まとめ</span></div>
 </section>
 
 <section class="slide">
@@ -322,7 +463,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <li>古い名簿は作り直したら消す</li>
   </ul>
   <div class="box caution"><b>ダミーで動いても、本番で動くとは限りません。</b>外字（﨑・髙など）や想定外の文字は、庁内で本番データを使って初めて確かめられます。</div>
-  <div class="foot"><span>2章 作ったツールの紹介 ｜ まとめ</span></div>
+  <div class="foot"><span>3章 作ったツールの紹介 ｜ まとめ</span></div>
 </section>
 
 </body>
