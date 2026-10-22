@@ -176,7 +176,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
 <!-- つながり名簿 -->
 <section class="slide">
   <h1>つながり名簿は、応援してくれる人との関わりを1つにまとめる名簿です</h1>
-  <div class="box info" style="margin-top:0">今年度から、事業のKPIが<br><b>「会員数」</b>から<b>「会員のうち応援行動を起こした人の割合（50%以上）」</b>に変わりました。</div>
+  <div class="box info" style="margin-top:0">今年度から、事業のKPIが<br><b>「会員数」</b>から<b>「会員のうち応援行動を起こした人の割合」</b>に変わりました。</div>
   <p style="margin-top:22px">そのために必要なのは、次の3つが分かる状態です。</p>
   <ul>
     <li><b>誰が</b>いて</li>
@@ -268,9 +268,9 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
 
 <section class="slide">
   <h1>交流会進捗管理は、遅れと自分の担当分がすぐ分かる形にしました</h1>
-  <p style="font-size:22px">交流会（令和9年1月13日）に向けた準備タスクを、業務ごと・担当ごとに管理するExcel。いま庁内で使っているブックを元に作り直しています。</p>
+  <p style="font-size:22px">交流会（令和9年1月13日）に向けた準備タスクを、業務ごと・担当ごとに管理するExcel。それまで使っていたブックを元に作り直し、いまは庁内でこの版を使っています。</p>
   <table class="compact">
-    <tr><th style="width:52%">いまのブックで困っていたこと</th><th>作り直しで入れたこと</th></tr>
+    <tr><th style="width:52%">前のブックで困っていたこと</th><th>作り直しで入れたこと</th></tr>
     <tr><td>時期を過ぎても終わっていないタスクが目立たない</td><td>遅れている行に色を付ける</td></tr>
     <tr><td>業務でしか絞り込めず、自分の担当分だけを見られない</td><td>担当者でも絞り込む</td></tr>
     <tr><td>上の固定部分が大きく、ノートPCでは表が数行しか見えない</td><td>固定部分を小さくする</td></tr>
@@ -292,6 +292,24 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
     <tr><td class="k">更新</td><td>年1回（人事異動のあと）</td><td>毎朝8:30に自動</td><td>申込が来るたびにボタンを押す</td></tr>
   </table>
   <div class="box info">庁内のPCに最初から入っている <b>PowerShell・Excel・Edge だけ</b>で動くので、新しいソフトを入れる必要がありません。</div>
+  <div class="foot"><span>2章 作ったツールの紹介 ｜ まとめ</span></div>
+</section>
+
+<section class="slide">
+  <h1>庁内のPCへは「設計図」だけを運び、庁内で組み立てます</h1>
+  <div class="flow">
+    <div class="step">開発するPC<small>インターネット側<br>ダミーデータで作る</small></div>
+    <div class="arrow">▶</div>
+    <div class="step" style="background:var(--orange-l);border-color:var(--orange)">無害化<small>外から入るファイルの<br>プログラム部分が消される</small></div>
+    <div class="arrow">▶</div>
+    <div class="step ok">庁内のPC<small>batを押すと、庁内のデータで<br>画面やExcelができあがる</small></div>
+  </div>
+  <ul>
+    <li>完成した画面（HTML）やマクロ入りExcelは、無害化を通すと<b>動く部分が消えて壊れます</b></li>
+    <li>そこで、組み立て方を書いたテキストのファイル（設計図）だけを運び、<b>庁内で初めて完成品を作ります</b></li>
+    <li>運ぶのはテキストだけ。中身を隠さず、情報管理担当が確認できる形にしています</li>
+  </ul>
+  <div class="box caution" style="margin-top:12px"><b>無害化をすり抜けるための工夫ではありません。</b>本物の名簿は庁内から出さず、外からは設計図しか入れない、という線を守るための作り方です。</div>
   <div class="foot"><span>2章 作ったツールの紹介 ｜ まとめ</span></div>
 </section>
 
