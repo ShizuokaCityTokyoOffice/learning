@@ -466,5 +466,121 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
   <div class="foot"><span>3章 作ったツールの紹介 ｜ まとめ</span></div>
 </section>
 
+<!-- 4章 -->
+<section class="slide chapter">
+  <div class="num">4章</div>
+  <h1>AIとの付き合い方</h1>
+</section>
+
+<section class="slide">
+  <h1>AIは「早く調べて作る相棒」。決めるのと確かめるのは自分です</h1>
+  <div class="ba">
+    <div class="col after">
+      <h2>任せられること</h2>
+      <ul>
+        <li>やり方を調べる、説明してもらう</li>
+        <li>コードや文章の下書きを作る</li>
+        <li>エラーの原因を一緒に探す</li>
+        <li>独学なら何日もかかることが、短い時間で進む</li>
+      </ul>
+    </div>
+    <div class="col" style="background:var(--orange-l);border:3px solid var(--orange)">
+      <h2 style="color:var(--orange)">任せきりにしないこと</h2>
+      <ul>
+        <li>庁内の事情や決まりは知らない。<b>文書で教える</b></li>
+        <li>もっともらしい間違いを言うことがある</li>
+        <li>「できました」でも、<b>動くかは自分で確かめる</b></li>
+        <li>何を作るか・作らないかは<b>人が決める</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>4章 AIとの付き合い方</span></div>
+</section>
+
+<section class="slide">
+  <h1>生成AIに入れる情報は、庁内のルールが最優先です</h1>
+  <div class="ba">
+    <div class="col" style="background:var(--orange-l);border:3px solid var(--orange)">
+      <h2 style="color:var(--orange)">入れない</h2>
+      <ul>
+        <li>個人情報（氏名・住所・電話番号・メールアドレスなど）</li>
+        <li>パスワード、APIキーなどの認証情報</li>
+        <li>公開前の庁内情報</li>
+      </ul>
+    </div>
+    <div class="col" style="background:var(--blue-l);border:3px solid var(--blue)">
+      <h2 style="color:var(--blue)">私が入れているもの</h2>
+      <ul>
+        <li>ダミーデータ（形だけ本物にそろえる）</li>
+        <li>個人情報を抜いた列の見出しや構造</li>
+        <li>自分で書いた定義書やコード</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box caution"><b>迷ったら入れない。</b>使ってよいサービスや入力してよい情報は、庁内の規程と情報管理担当の判断に従ってください。</div>
+  <div class="foot"><span>4章 AIとの付き合い方</span></div>
+</section>
+
+<section class="slide">
+  <h1>まずは「毎回同じ手順の作業」を1つ選んで、AIに相談してみてください</h1>
+  <div class="flow">
+    <div class="step">① 選ぶ<small>毎月・毎週、同じ手順で<br>やっている作業</small></div>
+    <div class="arrow">▶</div>
+    <div class="step">② 書き出す<small>手順と、何ができたら<br>終わりかを書く</small></div>
+    <div class="arrow">▶</div>
+    <div class="step">③ 相談する<small>「この作業を自動化<br>する方法は？」と聞く</small></div>
+    <div class="arrow">▶</div>
+    <div class="step ok">④ 試す<small>ダミーやコピーで<br>動かしてみる</small></div>
+  </div>
+  <ul>
+    <li>いきなり大きなシステムを作らない。1章のExcelの例くらいの大きさから</li>
+    <li>本物のファイルではなく、<b>コピーで試す</b></li>
+  </ul>
+  <div class="foot"><span>4章 AIとの付き合い方</span></div>
+</section>
+
+<!-- 振り返り -->
+<section class="slide chapter">
+  <div class="num">振り返り</div>
+  <h1>資料を閉じて、思い出してみましょう</h1>
+  <ol style="margin-top:20px">
+    <li>紹介したツールに共通する「型」は何でしたか</li>
+    <li>開発で大事にしている考え方を、2つ挙げてください</li>
+    <li>生成AIに入れてはいけない情報は何ですか</li>
+  </ol>
+  <p class="note" style="margin-top:16px">まず1人で1分考えてから、隣の人と答えを比べてください。</p>
+</section>
+
+<section class="slide">
+  <h1>答えと解説</h1>
+  <table>
+    <tr><th style="width:30%">問い</th><th>答えの例</th></tr>
+    <tr><td>① 共通する「型」</td><td>庁内PCにあるPowerShell・Excel・Edgeだけで動く。スクリプトがデータを読み、HTMLやExcelを組み立てる</td></tr>
+    <tr><td>② 大事にしている考え方</td><td>目的から考える／やらないことを決める／庁内の環境から逆算する／大事な判断は人に残す／動いたで終わらせず確かめる／決めたことを文書に残す　など</td></tr>
+    <tr><td>③ AIに入れない情報</td><td>個人情報、パスワードなどの認証情報、公開前の庁内情報。迷ったら入れない</td></tr>
+  </table>
+  <p class="note" style="margin-top:18px">思い出せなかったところが、いちばん身につくところです。もう一度そのページを見返してください。</p>
+  <div class="foot"><span>振り返り</span></div>
+</section>
+
+<section class="slide">
+  <h1>「どんな場面で・何をするか」を1つ決めて帰ってください</h1>
+  <table>
+    <tr><th style="width:26%"></th><th>書くこと</th><th style="width:38%">例</th></tr>
+    <tr><td class="k">きっかけ</td><td>どんな場面で</td><td>毎月の集計でExcelを開いたとき</td></tr>
+    <tr><td class="k">やること</td><td>具体的に何をするか</td><td>手順を書き出して、AIに自動化の方法を聞く</td></tr>
+    <tr><td class="k">困ったとき</td><td>忙しい・分からないときどうするか</td><td>15分で進まなければ、手順のメモを持って相談する</td></tr>
+  </table>
+  <div class="box info">「いつかやる」ではなく、「この場面になったらやる」と決めておくと、実際に動きやすくなります。</div>
+  <div class="foot"><span>振り返り</span></div>
+</section>
+
+<section class="slide title">
+  <h1>ご清聴ありがとうございました</h1>
+  <p>属人的な開発に終わらせないよう、定義書と手順を残していきます。</p>
+  <p>気になったツール、自動化したい作業があれば、気軽に声をかけてください。</p>
+  <p class="note" style="color:#b9cde3;margin-top:24px">質疑応答</p>
+</section>
+
 </body>
 </html>
