@@ -43,6 +43,7 @@ ul{margin:0;padding-left:1.2em}
 table{border-collapse:collapse;width:100%;font-size:22px;line-height:1.5}
 th,td{border:1px solid var(--line);padding:10px 16px;text-align:left;vertical-align:top}
 th{background:var(--blue-l);color:var(--blue)}
+table.compact{font-size:21px}table.compact th,table.compact td{padding:7px 14px}
 td.k{background:#f7f9fb;font-weight:bold;width:18%}
 .axes{display:flex;flex-direction:column;gap:14px}
 .axis{display:flex;align-items:center;gap:20px;border:3px solid var(--blue);border-radius:10px;padding:14px 22px;background:#fff}
@@ -266,14 +267,17 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
 </section>
 
 <section class="slide">
-  <h1>交流会進捗管理は、元のExcelに触らずに新しいブックを組み立てます</h1>
-  <ul>
-    <li>いま使っている進捗管理のExcelを、<b>Excelで開かずに</b>中身だけ読み取る</li>
-    <li>表の列は<b>列の名前</b>で探す。見つからない列があれば、そこで止まって理由を書き出す</li>
-    <li>組み立てた後、写した中身を<b>1つずつ照らし合わせて</b>確かめる</li>
-    <li>同じ名前のファイルがすでにあれば、<b>上書きせずに止まる</b></li>
-  </ul>
-  <div class="box info">元のファイルを壊さない、黙って進めない、という考え方は、ほかのツールと共通です。</div>
+  <h1>交流会進捗管理は、遅れと自分の担当分がすぐ分かる形にしました</h1>
+  <p style="font-size:22px">交流会（令和9年1月13日）に向けた準備タスクを、業務ごと・担当ごとに管理するExcel。いま庁内で使っているブックを元に作り直しています。</p>
+  <table class="compact">
+    <tr><th style="width:52%">いまのブックで困っていたこと</th><th>作り直しで入れたこと</th></tr>
+    <tr><td>時期を過ぎても終わっていないタスクが目立たない</td><td>遅れている行に色を付ける</td></tr>
+    <tr><td>業務でしか絞り込めず、自分の担当分だけを見られない</td><td>担当者でも絞り込む</td></tr>
+    <tr><td>上の固定部分が大きく、ノートPCでは表が数行しか見えない</td><td>固定部分を小さくする</td></tr>
+    <tr><td>ボタンが5つ重なって置かれ、押しても動かない</td><td>「タスクを追加」「印刷用を更新」の2つに整理</td></tr>
+    <tr><td>一部の端末でファイルが開かない（改ページプレビューのまま保存されていた）</td><td>保存の直前に、標準の表示へ自動で戻す</td></tr>
+  </table>
+  <p class="note" style="margin-top:14px">元のブックは書き換えません。中身を読み取って新しいブックに写し、写した中身が元と一致するかを確かめています。</p>
   <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
 </section>
 
