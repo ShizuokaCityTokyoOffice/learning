@@ -30,6 +30,7 @@ ul{margin:0;padding-left:1.2em}
 .step{flex:1;background:var(--blue-l);border:3px solid var(--blue);border-radius:10px;padding:18px 12px;text-align:center;font-size:24px;line-height:1.4}
 .step small{display:block;font-size:18px;color:var(--sub);margin-top:6px}
 .arrow{font-size:34px;color:var(--blue)}
+.phase small{font-size:21px;line-height:1.6;color:#333}
 .ok{border-color:var(--green);background:var(--green-l)}
 .ba{display:flex;gap:24px;align-items:stretch;margin-top:10px}
 .ba>div.col{flex:1;border-radius:12px;padding:22px 28px}
@@ -110,7 +111,7 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
 <section class="slide chapter">
   <div class="num">2章</div>
   <h1>作ったツールの紹介</h1>
-  <p style="margin-top:16px">職員録ビューア ／ つながり名簿（会員関係者データ基盤）</p>
+  <p style="margin-top:16px">職員録ビューア ／ つながり名簿（会員関係者データ基盤）／ 静岡市交流会の道具</p>
 </section>
 
 <!-- 職員録 -->
@@ -222,16 +223,69 @@ td.k{background:#f7f9fb;font-weight:bold;width:18%}
   <div class="foot"><span>2章 作ったツールの紹介 ｜ つながり名簿</span></div>
 </section>
 
+<!-- 交流会 -->
+<section class="slide">
+  <h1>交流会の照合用Excelは、案内から当日の名簿までを5つのボタンで進めます</h1>
+  <div class="flow phase" style="align-items:stretch">
+    <div class="step ok" style="text-align:left">
+      <b>案内状を送る前</b>
+      <small>① 宛名ラベルを作る<br>② LINEの宛先を確かめる</small>
+    </div>
+    <div class="arrow" style="align-self:center">▶</div>
+    <div class="step" style="text-align:left">
+      <b>申込が来たら（毎週）</b>
+      <small>③ 申込を案内状リストと突き合わせる<br>④ 2人目以降の同伴者用URLを作る</small>
+    </div>
+    <div class="arrow" style="align-self:center">▶</div>
+    <div class="step" style="text-align:left;background:var(--orange-l);border-color:var(--orange)">
+      <b>締め切ったら</b>
+      <small>⑤ 当日の名簿を作る</small>
+    </div>
+  </div>
+  <ul>
+    <li>ボタンの番号は押す順。色は時期ごとにそろえ、ボタンと出てくるシートが同じ色</li>
+    <li>LoGoフォームから書き出したCSVを「ファイルを取り込む」で選ぶだけ。入れるシートは見出しから自動で決まる</li>
+  </ul>
+  <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
+</section>
+
+<section class="slide">
+  <h1>突き合わせは「番号 → LINE ID → お名前」の順。迷うものは人が判断します</h1>
+  <div class="flow">
+    <div class="step">① 管理番号<small>案内状に書いた番号</small></div>
+    <div class="arrow">▶</div>
+    <div class="step">② LINEユーザーID<small>LINEから申し込んだ方</small></div>
+    <div class="arrow">▶</div>
+    <div class="step" style="background:var(--orange-l);border-color:var(--orange)">③ お名前<small>当たったら「IDの書き足し候補」へ</small></div>
+  </div>
+  <ul>
+    <li>決めきれないものは「要確認」シートに出て、人が 〇／× とメモを付ける</li>
+    <li>試験用のダミーデータに、<b>わざと間違いを仕込んで</b>確かめています<br><span class="note">同じ番号で2件の申込／リストに無い番号／お名前がリストと違う／「送付しない」の方からの申込 など</span></li>
+  </ul>
+  <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
+</section>
+
+<section class="slide">
+  <h1>交流会進捗管理は、元のExcelに触らずに新しいブックを組み立てます</h1>
+  <ul>
+    <li>いま使っている進捗管理のExcelを、<b>Excelで開かずに</b>中身だけ読み取る</li>
+    <li>表の列は<b>列の名前</b>で探す。見つからない列があれば、そこで止まって理由を書き出す</li>
+    <li>組み立てた後、写した中身を<b>1つずつ照らし合わせて</b>確かめる</li>
+    <li>同じ名前のファイルがすでにあれば、<b>上書きせずに止まる</b></li>
+  </ul>
+  <div class="box info">元のファイルを壊さない、黙って進めない、という考え方は、ほかのツールと共通です。</div>
+  <div class="foot"><span>2章 作ったツールの紹介 ｜ 交流会</span></div>
+</section>
+
 <!-- 共通 -->
 <section class="slide">
-  <h1>2つのツールは、同じ「型」で作っています</h1>
+  <h1>どのツールも、庁内のPCにあるソフトだけで動く同じ「型」で作っています</h1>
   <table>
-    <tr><th></th><th>職員録</th><th>つながり名簿</th></tr>
-    <tr><td class="k">入力</td><td>職員録のExcel</td><td>関係者システム・入会フォームなどのCSV</td></tr>
-    <tr><td class="k">処理</td><td colspan="2">PowerShellのスクリプトが読み込み、画面を組み立てる</td></tr>
-    <tr><td class="k">出力</td><td colspan="2">データ入りのHTMLファイル1つ（Edgeで開くだけ。サーバー不要）</td></tr>
-    <tr><td class="k">更新</td><td>年1回（人事異動のあと）</td><td>毎朝8:30に自動</td></tr>
-    <tr><td class="k">データを直す場所</td><td>元のExcel</td><td>画面から入力（課共有フォルダに保存）</td></tr>
+    <tr><th></th><th>職員録</th><th>つながり名簿</th><th>交流会の照合用Excel</th></tr>
+    <tr><td class="k">入力</td><td>職員録のExcel</td><td>関係者システム・入会フォームなどのCSV</td><td>LoGoフォームのCSV、案内状発送対象者リスト</td></tr>
+    <tr><td class="k">処理</td><td colspan="3">PowerShellのスクリプトが読み込み、画面やブックを組み立てる（batをダブルクリック）</td></tr>
+    <tr><td class="k">出力</td><td>HTMLファイル1つ</td><td>HTMLファイル1つ</td><td>マクロ入りのExcel</td></tr>
+    <tr><td class="k">更新</td><td>年1回（人事異動のあと）</td><td>毎朝8:30に自動</td><td>申込が来るたびにボタンを押す</td></tr>
   </table>
   <div class="box info">庁内のPCに最初から入っている <b>PowerShell・Excel・Edge だけ</b>で動くので、新しいソフトを入れる必要がありません。</div>
   <div class="foot"><span>2章 作ったツールの紹介 ｜ まとめ</span></div>
